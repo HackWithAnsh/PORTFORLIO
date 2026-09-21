@@ -23,13 +23,13 @@ const CONFIG = {
 
   /* ---------- Identity ---------- */
   name: "Ansh Maheshwari",
-  role: "BTech Student • Aspiring Software Developer",   // small label above the hero heading
+  role: "B.Tech CSE Student, Invertis University",        // small label above the hero heading
   greeting: "Hi, I'm",
-  tagline: "I build things for the web and love solving problems with code.",
+  tagline: "Learning to turn problems into working software.",
   heroBio:
-    "I'm a BTech student focused on Java, Data Structures & Algorithms, web development, " +
-    "and practical technology projects. I'm continuously learning and building projects " +
-    "to turn ideas into real-world solutions.",
+    "I'm a second-year B.Tech CSE student working through Java and Data Structures & Algorithms " +
+    "while building small web and IoT projects to see the ideas actually run. Alongside my degree " +
+    "I'm learning video editing and preparing for CDS.",
   footerTagline: "Building. Learning. Improving.",
 
   /* ---------- Links ---------- */
@@ -41,16 +41,7 @@ const CONFIG = {
   /* ---------- Profile photo ---------- */
   profileImage: "assets/images/profile-placeholder.svg",  // ← e.g. "assets/images/profile.jpg"
   profileAlt: "Portrait of Ansh Maheshwari",
-
-  /* ---------- Hero decorations ----------
-     Badges float around the photo. The code card is built from the object below;
-     keys and values can be anything (strings, numbers, or arrays of strings). */
-  heroBadges: ["Java", "JavaScript", "DSA"],
-  heroSnippet: {
-    degree: "BTech",
-    year: 2,
-    focus: ["Java", "DSA", "Web"],
-  },
+  photoCaption: "Second-year B.Tech CSE student, focused on Java, DSA and the web.",
 
   /* ---------- About ---------- */
   about: {
@@ -61,27 +52,28 @@ const CONFIG = {
       "On the web side, I'm building my skills in HTML, CSS and JavaScript by making " +
         "responsive projects. I like work that ends in something practical, whether that's " +
         "a web page or an IoT idea that connects hardware to software.",
-      "I take part in technology and hackathon projects because building under real " +
-        "constraints teaches me faster than tutorials alone. My goal is to keep improving " +
-        "as a developer and turn ideas into things that actually work.",
+      "What I bring beyond the code: problem solving, self-learning, time management, " +
+        "discipline, adaptability and team collaboration. Alongside my degree, I'm also " +
+        "learning video editing and preparing for CDS — both a good test of how well I manage my time.",
     ],
     // Only use numbers you can stand behind.
     stats: [
-      { value: "2nd Year", label: "BTech Student" },
-      { value: "5+", label: "Technologies" },
-      { value: "Multiple", label: "Projects Built" },
+      { value: "7.2", label: "CGPA out of 10" },
+      { value: "4", label: "Projects built" },
+      { value: "2029", label: "Expected graduation" },
     ],
   },
 
   /* ---------- Skills ----------
-     icon options: code, globe, layers, tool, book */
+     icon options: code, globe, layers, cpu, tool */
   skills: [
-    { category: "Programming",     icon: "code",   items: ["Java", "JavaScript"] },
-    { category: "Web Development", icon: "globe",  items: ["HTML", "CSS", "JavaScript"] },
+    { category: "Programming",     icon: "code",  items: ["Java", "JavaScript"] },
+    { category: "Web Development", icon: "globe", items: ["HTML", "CSS", "JavaScript"] },
     { category: "Core Concepts",   icon: "layers", items: ["Data Structures & Algorithms", "Object-Oriented Programming", "Problem Solving"] },
-    { category: "Tools",           icon: "tool",   items: ["Git", "GitHub", "VS Code"] },
+    { category: "IoT / Embedded",  icon: "cpu",   items: ["ESP32", "IoT", "Bluetooth", "Wi-Fi"] },
+    { category: "Tools",           icon: "tool",  items: ["Git", "GitHub", "VS Code"] },
   ],
-  learning: ["Advanced Java", "DSA", "JavaScript"],
+  learning: ["Java", "Data Structures & Algorithms", "JavaScript", "HTML", "CSS", "Web Development", "Video Editing"],
 
   /* ---------- Projects ----------
      Add, remove or reorder freely. Each project needs:
@@ -104,8 +96,8 @@ const CONFIG = {
     {
       title: "Emergency Safety System",
       description:
-        "A technology-based personal safety concept designed to help users respond quickly " +
-        "during emergency situations through connected hardware and location-based communication.",
+        "An ESP32-based wearable safety concept for emergency communication and alerts, using " +
+        "trusted-contact location sharing over Bluetooth and Wi-Fi.",
       tech: ["ESP32", "IoT", "Bluetooth/Wi-Fi", "Mobile/Location integration"],
       image: "assets/images/project-emergency-safety.svg",
       imageAlt: "Illustration of a microcontroller board sending a location signal to a phone",
@@ -113,14 +105,24 @@ const CONFIG = {
       demo: "",
     },
     {
-      title: "Web Development Projects",
+      title: "Student Grade Tracker",
       description:
-        "Responsive web projects developed to strengthen my frontend development skills " +
-        "using HTML, CSS and JavaScript.",
-      tech: ["HTML", "CSS", "JavaScript"],
+        "A Java console application for tracking and managing student grades and performance data.",
+      tech: ["Java", "OOP"],
       image: "assets/images/project-web-development.svg",
-      imageAlt: "Illustration of a website layout in a desktop browser and on a phone",
-      github: "https://github.com/your-username",
+      imageAlt: "Illustration of a grade tracker interface",
+      github: "https://github.com/your-username/student-grade-tracker",
+      demo: "",
+    },
+    {
+      title: "Hotel Reservation System",
+      description:
+        "A Java console application for managing hotel reservation-related operations, built " +
+        "around structured, object-oriented application logic.",
+      tech: ["Java", "OOP"],
+      image: "assets/images/project-web-development.svg",
+      imageAlt: "Illustration of a hotel booking interface",
+      github: "https://github.com/your-username/hotel-reservation-system",
       demo: "",
     },
   ],
@@ -142,13 +144,26 @@ const CONFIG = {
     },
   ],
 
-  /* ---------- Education ---------- */
+  /* ---------- Education ----------
+     Most recent first. `status` is shown as a small pill next to the period. */
   education: [
     {
-      degree: "Bachelor of Technology (BTech)",
-      institution: "[College Name]",    // ← your college
-      period: "2025 – 2029",
-      status: "2nd Year",
+      degree: "B.Tech in Computer Science & Engineering",
+      institution: "Invertis University",
+      period: "2025 – 2029 (expected)",
+      status: "2nd year, CGPA 7.2/10",
+    },
+    {
+      degree: "Class XII",
+      institution: "Bhoo Devi Varshney Inter College",
+      period: "2024",
+      status: "73.5%",
+    },
+    {
+      degree: "Class X",
+      institution: "Bhoo Devi Varshney Inter College",
+      period: "2022",
+      status: "85.33%",
     },
   ],
 
@@ -172,8 +187,8 @@ const ICONS = {
   code:     '<polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/>',
   globe:    '<circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>',
   layers:   '<polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/>',
+  cpu:      '<rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/><line x1="20" y1="9" x2="23" y2="9"/><line x1="20" y1="14" x2="23" y2="14"/><line x1="1" y1="9" x2="4" y2="9"/><line x1="1" y1="14" x2="4" y2="14"/>',
   tool:     '<path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>',
-  book:     '<path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>',
   github:   '<path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>',
   linkedin: '<path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/>',
   mail:     '<path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>',
@@ -207,8 +222,6 @@ const isPlaceholder = (value) =>
 
 /** "https://github.com/foo/" → "github.com/foo" */
 const prettyUrl = (url) => String(url).replace(/^https?:\/\/(www\.)?/, "").replace(/\/$/, "");
-
-const firstName = () => CONFIG.name.trim().split(/\s+/)[0] || "me";
 
 let toastTimer;
 function showToast(message) {
@@ -264,7 +277,7 @@ function renderSocials() {
   $$("[data-social]").forEach((list) => (list.innerHTML = html));
 }
 
-/** Photo, floating badges and the code card in the hero. */
+/** Hero photo and its one-line caption. */
 function renderHeroVisual() {
   const photo = $("#hero-photo");
   photo.alt = CONFIG.profileAlt;
@@ -274,33 +287,13 @@ function renderHeroVisual() {
     if (!photo.src.endsWith("profile-placeholder.svg")) photo.src = "assets/images/profile-placeholder.svg";
   });
 
-  $("#frame-file").textContent = `${firstName().toLowerCase()}.dev`;
-
-  CONFIG.heroBadges.slice(0, 3).forEach((text, i) => {
-    const badge = $(`#badge-${i + 1}`);
-    if (badge) badge.textContent = text;
-  });
-  for (let i = CONFIG.heroBadges.length + 1; i <= 3; i++) $(`#badge-${i}`)?.remove();
-
-  // Build the syntax-highlighted code card from CONFIG.heroSnippet
-  const format = (v) =>
-    Array.isArray(v)
-      ? "[" + v.map(format).join(", ") + "]"
-      : typeof v === "number"
-        ? `<span class="c-num">${v}</span>`
-        : `<span class="c-str">"${esc(v)}"</span>`;
-  const varName = firstName().toLowerCase().replace(/[^a-z0-9_]/g, "") || "me";
-  const lines = Object.entries(CONFIG.heroSnippet).map(
-    ([key, value]) => `  <span class="c-key">${esc(key)}</span>: ${format(value)},`
-  );
-  $("#hero-snippet").innerHTML =
-    `<span class="c-kw">const</span> ${esc(varName)} = {\n${lines.join("\n")}\n};`;
+  $("#photo-caption").textContent = CONFIG.photoCaption || "";
 }
 
 function renderAbout() {
   $("#about-text").innerHTML = CONFIG.about.paragraphs.map((p) => `<p>${esc(p)}</p>`).join("");
   $("#about-stats").innerHTML = CONFIG.about.stats
-    .map((s) => `<div class="stat" data-reveal><dt>${esc(s.label)}</dt><dd>${esc(s.value)}</dd></div>`)
+    .map((s) => `<div class="stat"><dt>${esc(s.label)}</dt><dd>${esc(s.value)}</dd></div>`)
     .join("");
 }
 
@@ -308,7 +301,7 @@ function renderSkills() {
   $("#skills-grid").innerHTML = CONFIG.skills
     .map(
       (group) => `
-      <article class="skill-card" data-reveal>
+      <article class="skill-card">
         <div class="skill-card__head">
           <span class="skill-card__icon">${icon(group.icon)}</span>
           <h3>${esc(group.category)}</h3>
@@ -320,7 +313,7 @@ function renderSkills() {
 
   $("#skills-learning").innerHTML = CONFIG.learning.length
     ? `<div class="learning" data-reveal>
-         <h3 class="learning__title"><span class="pulse" aria-hidden="true"></span>Currently Learning</h3>
+         <h3 class="learning__title"><span class="learning__dot" aria-hidden="true"></span>Currently Learning</h3>
          <ul class="chips chips--accent">${CONFIG.learning.map((item) => `<li class="chip">${esc(item)}</li>`).join("")}</ul>
        </div>`
     : "";
@@ -362,7 +355,7 @@ function renderExperience() {
   $("#experience-list").innerHTML = CONFIG.experience
     .map(
       (e) => `
-      <li class="timeline__item" data-reveal>
+      <li class="timeline__item">
         <p class="timeline__period">${esc(e.period)}</p>
         <h3 class="timeline__title">${esc(e.title)}</h3>
         <p class="timeline__type"><span>${esc(e.type)}</span>${e.placeholder ? '<span class="pill">Placeholder text</span>' : ""}</p>
@@ -378,7 +371,7 @@ function renderEducation() {
   $("#education-list").innerHTML = CONFIG.education
     .map(
       (e) => `
-      <article class="edu" data-reveal>
+      <article class="edu">
         <span class="edu__icon">${icon("cap")}</span>
         <div>
           <h3>${esc(e.degree)}</h3>
@@ -394,7 +387,7 @@ function renderAchievements() {
   $("#achievements-grid").innerHTML = CONFIG.achievements
     .map(
       (a) => `
-      <div class="ach__item" data-reveal>
+      <div class="ach__item">
         <div class="ach__head">${icon(a.icon)}<h3>${esc(a.title)}</h3></div>
         ${
           a.items && a.items.length
@@ -502,7 +495,11 @@ function initNav() {
   byId.forEach((_, id) => { const section = document.getElementById(id); if (section) spy.observe(section); });
 }
 
-/** Fade blocks in as they enter the viewport. */
+/**
+ * Fade blocks in once as they enter the viewport — at the level of a whole
+ * section block (see the data-reveal attributes in index.html), not on
+ * every repeated card, so the page doesn't scatter motion everywhere.
+ */
 function initReveal() {
   const items = $$("[data-reveal]");
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -512,7 +509,7 @@ function initReveal() {
     return;
   }
 
-  // Small stagger for siblings that appear together
+  // Small stagger for siblings that appear together (e.g. project cards)
   const seen = new Map();
   items.forEach((el) => {
     const index = seen.get(el.parentElement) || 0;

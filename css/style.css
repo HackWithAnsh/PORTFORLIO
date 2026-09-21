@@ -5,20 +5,19 @@
    1. Design tokens (colours, type, spacing, radius, motion)  ← edit here
    2. Base / reset
    3. Layout helpers
-   4. Background effects
-   5. Navigation
-   6. Hero
-   7. Buttons & icon links
-   8. About
-   9. Skills
-   10. Projects
-   11. Experience & education
-   12. Achievements
-   13. Contact & form
-   14. Footer, toast
-   15. Motion (entrance + scroll reveal)
-   16. Responsive
-   17. Reduced motion
+   4. Navigation
+   5. Hero
+   6. Buttons & icon links
+   7. About
+   8. Skills
+   9. Projects
+   10. Experience & education
+   11. Achievements
+   12. Contact & form
+   13. Footer, toast
+   14. Motion (one hero entrance + a single section-level reveal)
+   15. Responsive
+   16. Reduced motion
    ===================================================================== */
 
 
@@ -27,7 +26,7 @@
    To re-theme the whole site, change --accent-rgb (and --bg if you like).
    ===================================================================== */
 :root {
-  /* Accent — a warm amber. Change these three numbers to change the accent everywhere. */
+  /* Accent — warm amber. Change these three numbers to change the accent everywhere. */
   --accent-rgb: 243, 181, 98;
   --accent: rgb(var(--accent-rgb));
   --accent-strong: #ffc880;               /* hover state */
@@ -36,25 +35,22 @@
   --accent-line: rgba(var(--accent-rgb), .38);
 
   /* Surfaces */
-  --bg: #0e1117;
-  --bg-elev: #131822;
-  --surface: #161c27;
-  --surface-2: #1c2331;
+  --bg: #0b0d12;
+  --bg-elev: #10131a;
+  --surface: #141822;
+  --surface-2: #1a202c;
   --line: rgba(255, 255, 255, .08);
   --line-strong: rgba(255, 255, 255, .16);
 
   /* Text */
-  --text: #e9edf3;
-  --text-soft: #c3cbd8;
-  --muted: #9aa5b8;
-  --faint: #7d899e;
-  --code-key: #8fa3c7;
-  --code-num: #9ec0ff;
+  --text: #eef1f6;
+  --text-soft: #c6cedb;
+  --muted: #97a2b5;
+  --faint: #707b8d;
 
-  /* Type */
+  /* Type — two families only, clearly distinct roles */
   --font-display: "Bricolage Grotesque", "Segoe UI", system-ui, -apple-system, sans-serif;
   --font-body: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 
   /* Spacing */
   --space-1: .25rem;
@@ -106,12 +102,13 @@ body {
   line-height: 1.65;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+  overflow-x: hidden;
 }
 
 img, svg { display: block; max-width: 100%; }
 a { color: inherit; text-decoration: none; }
 ul, ol { list-style: none; margin: 0; padding: 0; }
-h1, h2, h3, p, figure, pre, dl, dd { margin: 0; }
+h1, h2, h3, p, figure, dl, dd { margin: 0; }
 button, input, textarea { font: inherit; color: inherit; }
 
 ::selection { background: var(--accent); color: var(--accent-ink); }
@@ -209,70 +206,21 @@ button, input, textarea { font: inherit; color: inherit; }
 
 
 /* =====================================================================
-   4. BACKGROUND EFFECTS (fixed, non-interactive, transform-only motion)
-   ===================================================================== */
-.bg {
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  pointer-events: none;
-  overflow: hidden;
-}
-
-/* The mask lives on the wrapper; only the inner layer moves, so the fade never jumps */
-.bg__grid {
-  position: absolute;
-  inset: 0;
-  -webkit-mask-image: radial-gradient(ellipse 75% 65% at 50% 25%, #000 15%, transparent 75%);
-          mask-image: radial-gradient(ellipse 75% 65% at 50% 25%, #000 15%, transparent 75%);
-}
-.bg__grid::before {
-  content: "";
-  position: absolute;
-  inset: -64px 0 0 0;
-  background-image:
-    linear-gradient(var(--line) 1px, transparent 1px),
-    linear-gradient(90deg, var(--line) 1px, transparent 1px);
-  background-size: 64px 64px;
-  opacity: .6;
-  animation: grid-drift 50s linear infinite;
-}
-
-.bg__orb { position: absolute; border-radius: 50%; will-change: transform; }
-.bg__orb--a {
-  width: 62vmax; height: 62vmax;
-  top: -26vmax; right: -18vmax;
-  background: radial-gradient(closest-side, rgba(var(--accent-rgb), .12), transparent);
-  animation: drift-a 32s ease-in-out infinite alternate;
-}
-.bg__orb--b {
-  width: 56vmax; height: 56vmax;
-  bottom: -30vmax; left: -22vmax;
-  background: radial-gradient(closest-side, rgba(96, 132, 214, .09), transparent);
-  animation: drift-b 38s ease-in-out infinite alternate;
-}
-
-@keyframes grid-drift { to { transform: translate3d(0, 64px, 0); } }
-@keyframes drift-a { to { transform: translate3d(-6vmax, 5vmax, 0); } }
-@keyframes drift-b { to { transform: translate3d(7vmax, -4vmax, 0); } }
-
-
-/* =====================================================================
-   5. NAVIGATION
+   4. NAVIGATION
    ===================================================================== */
 .nav {
   position: fixed;
   top: 0; left: 0; right: 0;
   z-index: 50;
   height: var(--nav-h);
-  background: rgba(14, 17, 23, .45);
+  background: rgba(11, 13, 18, .5);
   -webkit-backdrop-filter: blur(14px) saturate(140%);
           backdrop-filter: blur(14px) saturate(140%);
   border-bottom: 1px solid transparent;
   transition: background-color var(--t-med), border-color var(--t-med);
 }
 .nav.is-scrolled {
-  background: rgba(14, 17, 23, .86);
+  background: rgba(11, 13, 18, .88);
   border-bottom-color: var(--line);
 }
 
@@ -287,9 +235,8 @@ button, input, textarea { font: inherit; color: inherit; }
 .nav__brand {
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: .98rem;
-  letter-spacing: .14em;
-  text-transform: uppercase;
+  font-size: 1.08rem;
+  letter-spacing: -.01em;
   white-space: nowrap;
 }
 
@@ -344,12 +291,15 @@ button, input, textarea { font: inherit; color: inherit; }
 .nav.is-open .nav__toggle span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
 
 @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
-  .nav { background: rgba(14, 17, 23, .92); }
+  .nav { background: rgba(11, 13, 18, .94); }
 }
 
 
 /* =====================================================================
-   6. HERO
+   5. HERO
+   A single, deliberate entrance sequence (the .rise stagger below) is the
+   one orchestrated motion moment on the page — everything past the hero
+   is quiet until the person scrolls to it or interacts with it.
    ===================================================================== */
 .hero {
   position: relative;
@@ -359,8 +309,18 @@ button, input, textarea { font: inherit; color: inherit; }
   align-items: center;
   padding-top: calc(var(--nav-h) + 2rem);
   padding-bottom: var(--space-8);
-  overflow-x: hidden;
-  overflow-x: clip;
+  overflow: clip;
+}
+
+/* One quiet, static glow behind the photo — no animation, no full-page grid */
+.hero::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: -8% -6% auto -6%;
+  height: 120%;
+  background: radial-gradient(46% 55% at 72% 22%, rgba(var(--accent-rgb), .13), transparent 72%);
+  pointer-events: none;
 }
 
 .hero__grid {
@@ -370,28 +330,27 @@ button, input, textarea { font: inherit; color: inherit; }
   align-items: center;
 }
 
-.hero__label {
-  display: flex;
+.hero__eyebrow {
+  display: inline-flex;
   align-items: center;
-  gap: .75rem;
-  font-size: .78rem;
+  gap: .6rem;
+  font-size: 1rem;
   font-weight: 500;
-  letter-spacing: .16em;
-  text-transform: uppercase;
-  color: var(--muted);
+  color: var(--accent-strong);
 }
-.hero__label::before {
+.hero__eyebrow::before {
   content: "";
   flex: none;
-  width: 28px; height: 1px;
+  width: 7px; height: 7px;
+  border-radius: 50%;
   background: var(--accent);
 }
 
 .hero__title {
-  margin-top: var(--space-5);
+  margin-top: var(--space-4);
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: clamp(2.6rem, 6.4vw, 4.4rem);
+  font-size: clamp(2.9rem, 7vw, 5rem);
   line-height: 1.02;
   letter-spacing: -.035em;
   overflow-wrap: break-word;
@@ -423,7 +382,7 @@ button, input, textarea { font: inherit; color: inherit; }
 
 .hero__bio {
   margin-top: var(--space-4);
-  max-width: 54ch;
+  max-width: 56ch;
   color: var(--muted);
 }
 
@@ -435,131 +394,46 @@ button, input, textarea { font: inherit; color: inherit; }
 }
 .hero .social { margin-top: var(--space-6); }
 
-/* ---- Profile visual ---- */
+/* ---- Profile photo ---- */
 .hero__visual { min-width: 0; }
 
-.stage {
+.photo-frame {
   position: relative;
   isolation: isolate;
-  width: min(100%, 430px);
-  aspect-ratio: 4 / 4.6;
+  width: min(100%, 400px);
+  aspect-ratio: 4 / 4.7;
   margin-inline: auto;
-}
-.stage::before {                 /* soft light behind the frame */
-  content: "";
-  position: absolute;
-  inset: -22%;
-  z-index: -2;
-  background: radial-gradient(closest-side, rgba(var(--accent-rgb), .17), transparent 72%);
-}
-
-.stage__ring {
-  position: absolute;
-  inset: -7%;
-  z-index: -1;
-  border: 1px solid var(--line-strong);
-  border-radius: 50%;
-  animation: spin 80s linear infinite;
-}
-.stage__ring::after {            /* small glowing satellite on the ring */
-  content: "";
-  position: absolute;
-  top: 12%; left: 9%;
-  width: 9px; height: 9px;
-  border-radius: 50%;
-  background: var(--accent);
-  box-shadow: 0 0 16px 4px rgba(var(--accent-rgb), .5);
-}
-@keyframes spin { to { transform: rotate(360deg); } }
-
-.frame {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  flex-direction: column;
   overflow: hidden;
   border: 1px solid var(--line-strong);
   border-radius: var(--r-lg);
   background: var(--surface);
-  box-shadow: 0 30px 80px -30px rgba(0, 0, 0, .75);
+  box-shadow: 0 40px 90px -42px rgba(0, 0, 0, .8);
 }
-.frame__bar {
-  display: flex;
-  align-items: center;
-  gap: .45rem;
-  padding: .7rem 1rem;
-  border-bottom: 1px solid var(--line);
-  background: rgba(255, 255, 255, .02);
-}
-.frame__dot { width: 9px; height: 9px; border-radius: 50%; background: var(--line-strong); }
-.frame__file {
-  margin-left: .5rem;
-  font: 400 .75rem var(--font-mono);
-  color: var(--faint);
-}
-.frame__photo { position: relative; flex: 1; min-height: 0; }
-.frame__photo img { width: 100%; height: 100%; object-fit: cover; }
-
-/* Floating decorations */
-.float { position: absolute; z-index: 2; animation: bob 7s ease-in-out infinite; }
-@keyframes bob { 50% { transform: translateY(-9px); } }
-
-.code-card {
-  left: -13%; bottom: 8%;
-  padding: .85rem 1rem;
-  border: 1px solid var(--line-strong);
-  border-radius: var(--r-md);
-  background: rgba(22, 28, 39, .82);
-  -webkit-backdrop-filter: blur(10px);
-          backdrop-filter: blur(10px);
-  font: 400 .78rem/1.65 var(--font-mono);
-  color: var(--text-soft);
-  white-space: pre;
-  box-shadow: 0 18px 40px -18px rgba(0, 0, 0, .8);
-  animation-duration: 8s;
-}
-.c-kw { color: var(--code-key); }
-.c-key { color: var(--text); }
-.c-str { color: var(--accent); }
-.c-num { color: var(--code-num); }
-
-.badge {
-  display: inline-flex;
-  align-items: center;
-  gap: .5rem;
-  padding: .4rem .85rem;
-  border: 1px solid var(--line-strong);
-  border-radius: var(--r-pill);
-  background: rgba(22, 28, 39, .8);
-  -webkit-backdrop-filter: blur(8px);
-          backdrop-filter: blur(8px);
-  font-size: .85rem;
-  font-weight: 500;
-}
-.badge::before {
+/* One deliberate accent detail, not a repeated decoration */
+.photo-frame::after {
   content: "";
-  width: 6px; height: 6px;
-  border-radius: 50%;
-  background: var(--accent);
-}
-.float--b1 { top: 10%; right: -9%; animation-delay: -1s; }
-.float--b2 { top: 44%; right: -13%; animation-delay: -3.5s; animation-duration: 9s; }
-.float--b3 { bottom: -3%; right: 10%; animation-delay: -5s; animation-duration: 8s; }
-
-.sym {
   position: absolute;
-  z-index: 2;
-  font: 500 1.35rem var(--font-mono);
-  color: var(--accent);
-  opacity: .55;
-  animation: bob 9s ease-in-out infinite;
+  top: -1px; left: -1px;
+  width: 46px; height: 46px;
+  border-top: 2px solid var(--accent);
+  border-left: 2px solid var(--accent);
+  border-top-left-radius: var(--r-lg);
+  pointer-events: none;
 }
-.sym--1 { top: -3%; left: 4%; }
-.sym--2 { top: 27%; left: -9%; animation-delay: -4s; }
+.photo-frame img { width: 100%; height: 100%; object-fit: cover; }
+
+.photo-caption {
+  margin-top: 1.1rem;
+  max-width: 32ch;
+  margin-inline: auto;
+  color: var(--faint);
+  font-size: .92rem;
+  text-align: center;
+}
 
 
 /* =====================================================================
-   7. BUTTONS & ICON LINKS
+   6. BUTTONS & ICON LINKS
    ===================================================================== */
 .btn {
   display: inline-flex;
@@ -602,7 +476,7 @@ button, input, textarea { font: inherit; color: inherit; }
 
 
 /* =====================================================================
-   8. ABOUT
+   7. ABOUT
    ===================================================================== */
 .prose p { max-width: 62ch; color: var(--text-soft); }
 .prose p + p { margin-top: 1.1em; }
@@ -635,13 +509,16 @@ button, input, textarea { font: inherit; color: inherit; }
 
 
 /* =====================================================================
-   9. SKILLS
+   8. SKILLS
    ===================================================================== */
 .skills {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: var(--space-4);
 }
+/* If the grid holds an odd number of categories, let the last one breathe */
+.skills > :last-child:nth-child(odd) { grid-column: 1 / -1; }
+
 .skill-card {
   padding: 1.5rem;
   border: 1px solid var(--line);
@@ -689,22 +566,17 @@ button, input, textarea { font: inherit; color: inherit; }
   font-weight: 600;
   font-size: 1.1rem;
 }
-.pulse {
-  width: 8px; height: 8px;
+.learning__dot {
+  width: 7px; height: 7px;
   border-radius: 50%;
   background: var(--accent);
-  animation: pulse 2.6s ease-out infinite;
-}
-@keyframes pulse {
-  0%   { box-shadow: 0 0 0 0 rgba(var(--accent-rgb), .5); }
-  70%  { box-shadow: 0 0 0 9px rgba(var(--accent-rgb), 0); }
-  100% { box-shadow: 0 0 0 0 rgba(var(--accent-rgb), 0); }
+  flex: none;
 }
 .chips--accent .chip { border-color: var(--accent-line); background: var(--accent-soft); color: var(--text); }
 
 
 /* =====================================================================
-   10. PROJECTS
+   9. PROJECTS
    ===================================================================== */
 .projects { display: grid; gap: var(--space-5); }
 
@@ -715,12 +587,9 @@ button, input, textarea { font: inherit; color: inherit; }
   border: 1px solid var(--line);
   border-radius: var(--r-lg);
   background: var(--surface);
-  transition: border-color var(--t-med), box-shadow var(--t-med);
+  transition: box-shadow var(--t-med);
 }
-.project:hover {
-  border-color: var(--accent-line);
-  box-shadow: 0 30px 60px -40px rgba(0, 0, 0, .9);
-}
+.project:hover { box-shadow: 0 34px 70px -42px rgba(0, 0, 0, .9); }
 .project:nth-child(even) .project__media { order: 2; }
 
 .project__media {
@@ -755,7 +624,7 @@ button, input, textarea { font: inherit; color: inherit; }
 
 
 /* =====================================================================
-   11. EXPERIENCE & EDUCATION
+   10. EXPERIENCE & EDUCATION
    ===================================================================== */
 .timeline {
   position: relative;
@@ -841,7 +710,7 @@ button, input, textarea { font: inherit; color: inherit; }
 
 
 /* =====================================================================
-   12. ACHIEVEMENTS
+   11. ACHIEVEMENTS
    Grid lines are made with a 1px gap over a line-coloured background.
    ===================================================================== */
 .ach {
@@ -870,7 +739,7 @@ button, input, textarea { font: inherit; color: inherit; }
 
 
 /* =====================================================================
-   13. CONTACT & FORM
+   12. CONTACT & FORM
    ===================================================================== */
 .contact {
   display: grid;
@@ -899,7 +768,7 @@ button, input, textarea { font: inherit; color: inherit; }
   padding: clamp(1.5rem, 3vw, 2.25rem);
   border: 1px solid var(--line);
   border-radius: var(--r-lg);
-  background: rgba(22, 28, 39, .72);
+  background: rgba(20, 24, 34, .72);
   -webkit-backdrop-filter: blur(12px);
           backdrop-filter: blur(12px);
 }
@@ -921,16 +790,16 @@ button, input, textarea { font: inherit; color: inherit; }
 .field textarea:hover { border-color: rgba(255, 255, 255, .28); }
 .field input:focus,
 .field textarea:focus { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }
-.form .btn { margin-top: var(--space-5); }
+.form .btn { margin-top: var(--space-5); width: 100%; }
 .form__note { margin-top: var(--space-4); color: var(--faint); font-size: .88rem; }
 
 
 /* =====================================================================
-   14. FOOTER & TOAST
+   13. FOOTER & TOAST
    ===================================================================== */
 .footer { padding: var(--space-7) 0 var(--space-5); border-top: 1px solid var(--line); }
 .footer__inner { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-5); }
-.footer__name { font-family: var(--font-display); font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
+.footer__name { font-family: var(--font-display); font-weight: 700; font-size: 1.1rem; letter-spacing: -.01em; }
 .footer__tagline { margin-top: .25rem; color: var(--muted); }
 .footer__legal { margin-top: var(--space-6); padding-top: var(--space-5); border-top: 1px solid var(--line); color: var(--faint); font-size: .9rem; }
 
@@ -953,10 +822,11 @@ button, input, textarea { font: inherit; color: inherit; }
 
 
 /* =====================================================================
-   15. MOTION
-   One orchestrated entrance in the hero, then a light reveal as blocks
-   scroll into view. Reveal uses an animation with a "backwards" fill, so
-   it never fights with hover transitions on the same element.
+   14. MOTION
+   Exactly one orchestrated moment plays automatically: the hero's
+   staggered entrance. Everything below the hero reveals once, at the
+   level of a whole section block — never a scattered fade on every
+   card — and hover feedback only ever answers something the person did.
    ===================================================================== */
 @keyframes rise {
   from { opacity: 0; transform: translateY(14px); }
@@ -977,12 +847,12 @@ button, input, textarea { font: inherit; color: inherit; }
 
 
 /* =====================================================================
-   16. RESPONSIVE
+   15. RESPONSIVE
    ===================================================================== */
 @media (max-width: 992px) {
   .hero { min-height: auto; padding-top: calc(var(--nav-h) + 3rem); }
   .hero__grid { grid-template-columns: 1fr; }
-  .stage { width: min(84%, 380px); }
+  .photo-frame { width: min(78%, 360px); }
 
   .split { grid-template-columns: 1fr; gap: 2rem; }
   .split__head { position: static; }
@@ -1028,17 +898,14 @@ button, input, textarea { font: inherit; color: inherit; }
 
 @media (max-width: 600px) {
   .skills { grid-template-columns: 1fr; }
+  .skills > :last-child:nth-child(odd) { grid-column: auto; }
 }
 
 @media (max-width: 480px) {
   body { font-size: 1rem; }
-  .hero__label { letter-spacing: .1em; font-size: .72rem; }
+  .hero__eyebrow { font-size: .92rem; }
   .hero__actions .btn { width: 100%; }
-  .stage { width: min(82%, 320px); }
-  .code-card { left: -10%; font-size: .68rem; padding: .65rem .8rem; }
-  .float--b1 { right: -8%; }
-  .float--b2 { right: -10%; }
-  .sym--2 { left: -7%; }
+  .photo-frame { width: min(80%, 300px); }
 
   .stats { grid-template-columns: 1fr; }
   .stat { flex-direction: row-reverse; justify-content: flex-end; align-items: baseline; gap: 1rem; padding: 1rem 0; }
@@ -1051,7 +918,7 @@ button, input, textarea { font: inherit; color: inherit; }
 
 
 /* =====================================================================
-   17. REDUCED MOTION
+   16. REDUCED MOTION
    ===================================================================== */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
