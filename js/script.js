@@ -33,13 +33,13 @@ const CONFIG = {
   footerTagline: "Building. Learning. Improving.",
 
   /* ---------- Links ---------- */
-  email: "your.email@example.com",                        // ← your email address
-  github: "https://github.com/your-username",             // ← your GitHub profile
-  linkedin: "https://www.linkedin.com/in/your-profile/",  // ← your LinkedIn profile
+  email: "maheshwariansh478@gmail.com",
+  github: "https://github.com/HackWithAnsh",
+  linkedin: "https://linkedin.com/in/hackwithansh",
   resume: "assets/Ansh-Maheshwari-Resume.pdf",            // ← put your PDF at this path (see README)
 
   /* ---------- Profile photo ---------- */
-  profileImage: "assets/images/profile-placeholder.svg",  // ← e.g. "assets/images/profile.jpg"
+  profileImage: "assets/images/profile-placeholder.svg",
   profileAlt: "Portrait of Ansh Maheshwari",
   photoCaption: "Second-year B.Tech CSE student, focused on Java, DSA and the web.",
 
@@ -90,7 +90,7 @@ const CONFIG = {
       tech: ["IoT", "Sensors", "Embedded/connected systems"],
       image: "assets/images/project-water-quality.svg",
       imageAlt: "Illustration of a water sensor probe sending readings to a dashboard",
-      github: "https://github.com/your-username/iot-water-quality-monitor",
+      github: "",
       demo: "",
     },
     {
@@ -101,7 +101,7 @@ const CONFIG = {
       tech: ["ESP32", "IoT", "Bluetooth/Wi-Fi", "Mobile/Location integration"],
       image: "assets/images/project-emergency-safety.svg",
       imageAlt: "Illustration of a microcontroller board sending a location signal to a phone",
-      github: "https://github.com/your-username/emergency-safety-system",
+      github: "",
       demo: "",
     },
     {
@@ -111,7 +111,7 @@ const CONFIG = {
       tech: ["Java", "OOP"],
       image: "assets/images/project-web-development.svg",
       imageAlt: "Illustration of a grade tracker interface",
-      github: "https://github.com/your-username/student-grade-tracker",
+      github: "",
       demo: "",
     },
     {
@@ -122,25 +122,27 @@ const CONFIG = {
       tech: ["Java", "OOP"],
       image: "assets/images/project-web-development.svg",
       imageAlt: "Illustration of a hotel booking interface",
-      github: "https://github.com/your-username/hotel-reservation-system",
+      github: "",
       demo: "",
     },
   ],
 
-  /* ---------- Experience ----------
-     Keep this honest. If it wasn't a job or internship, leave `type` as
-     "Project experience". Set `placeholder: false` once you've replaced the text. */
+  /* ---------- Current focus ---------- */
   experience: [
     {
       period: "2026",
-      title: "Web Development",
-      type: "Project experience",       // change to "Internship" only if it was one
-      organization: "",                 // optional: company, club or event name
+      title: "Current Development Focus",
+      type: "Learning & project work",
+      organization: "B.Tech CSE • Invertis University",
       description:
-        "Worked on frontend and web development projects, building responsive pages with " +
-        "HTML, CSS and JavaScript. Replace this text with what you actually built and learned.",
-      points: [],                       // optional bullet list, e.g. ["Built a responsive landing page"]
-      placeholder: true,
+        "Currently strengthening Java and Data Structures & Algorithms while building web and IoT projects. Also developing practical skills in JavaScript, Git and GitHub.",
+      points: [
+        "Practicing Data Structures & Algorithms using Java",
+        "Building responsive projects with HTML, CSS and JavaScript",
+        "Exploring ESP32, IoT and connected-system concepts",
+        "Continuously improving problem-solving and software development fundamentals"
+      ],
+      placeholder: false,
     },
   ],
 
@@ -384,16 +386,20 @@ function renderEducation() {
 }
 
 function renderAchievements() {
+  const section = $("#achievements");
+  const hasItems = CONFIG.achievements.some((a) => a.items && a.items.length);
+  if (!hasItems) {
+    section.hidden = true;
+    return;
+  }
+  section.hidden = false;
   $("#achievements-grid").innerHTML = CONFIG.achievements
+    .filter((a) => a.items && a.items.length)
     .map(
       (a) => `
       <div class="ach__item">
         <div class="ach__head">${icon(a.icon)}<h3>${esc(a.title)}</h3></div>
-        ${
-          a.items && a.items.length
-            ? `<ul class="ach__list">${a.items.map((i) => `<li>${esc(i)}</li>`).join("")}</ul>`
-            : `<p class="ach__empty">${esc(CONFIG.achievementsEmptyText)}</p>`
-        }
+        <ul class="ach__list">${a.items.map((i) => `<li>${esc(i)}</li>`).join("")}</ul>
       </div>`
     )
     .join("");
