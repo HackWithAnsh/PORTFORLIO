@@ -142,3 +142,11 @@ If you later want messages delivered without opening an email app, connect a for
 ## Note on SEO
 
 The page content is built by JavaScript from `CONFIG`. Google renders JavaScript, so it is indexed normally, but some social-preview crawlers only read the raw HTML. That is why the title, description and Open Graph tags are written directly in `index.html`.
+
+
+## SEO setup
+The portfolio includes SEO metadata directly in `index.html`, including a descriptive title, meta description, canonical URL, robots directives, Open Graph tags and Twitter/X card metadata. It also includes a `Person` JSON-LD schema for Ansh Maheshwari, plus `robots.txt` and `sitemap.xml` for search-engine discovery.
+
+The profile image is served as an optimized WebP to reduce page weight. After deploying changes, submit `https://hackwithansh.vercel.app/sitemap.xml` in Google Search Console and request indexing for the homepage.
+
+The page content is still rendered from `CONFIG` in JavaScript. The important identity and sharing metadata remains in raw HTML so crawlers and social-preview systems can read it without waiting for JavaScript.

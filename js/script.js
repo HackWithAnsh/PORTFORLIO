@@ -39,7 +39,7 @@ const CONFIG = {
   resume: "assets/Ansh-Maheshwari-Resume.pdf",            // ← put your PDF at this path (see README)
 
   /* ---------- Profile photo ---------- */
-  profileImage: "assets/images/profile.jpg",
+  profileImage: "assets/images/profile.webp",
   profileAlt: "Portrait of Ansh Maheshwari",
   photoCaption: "Second-year B.Tech CSE student, focused on Java, DSA and the web.",
 
