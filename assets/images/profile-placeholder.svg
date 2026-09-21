@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 920" role="img" aria-label="Profile photo placeholder">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1e2534"/>
+      <stop offset="1" stop-color="#131822"/>
+    </linearGradient>
+    <radialGradient id="glow" cx=".5" cy=".36" r=".55">
+      <stop offset="0" stop-color="#f3b562" stop-opacity=".2"/>
+      <stop offset="1" stop-color="#f3b562" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="800" height="920" fill="url(#bg)"/>
+  <rect width="800" height="920" fill="url(#glow)"/>
+  <circle cx="400" cy="350" r="118" fill="#2b3346"/>
+  <path d="M130 920c0-176 116-300 270-300s270 124 270 300z" fill="#2b3346"/>
+  <text x="400" y="512" text-anchor="middle" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="28" font-weight="600" fill="#9aa5b8">Add your photo here</text>
+  <text x="400" y="548" text-anchor="middle" font-family="ui-monospace, Menlo, Consolas, monospace" font-size="21" fill="#7d899e">assets/images/profile.jpg</text>
+</svg>

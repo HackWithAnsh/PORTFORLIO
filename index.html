@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- =====================================================================
+       SEO / SHARING METADATA
+       These tags must live in the HTML (search engines and link previews
+       read them before any JavaScript runs), so they are edited here rather
+       than in js/script.js. Everything else you'll want to change is in the
+       CONFIG block at the top of js/script.js.
+       ===================================================================== -->
+  <title>Ansh Maheshwari | BTech Student &amp; Aspiring Software Developer</title>
+  <meta name="description" content="Portfolio of Ansh Maheshwari — BTech student, aspiring software developer, and technology enthusiast focused on Java, DSA and web development.">
+  <meta name="author" content="Ansh Maheshwari">
+  <meta name="theme-color" content="#0e1117">
+
+  <!-- Open Graph (LinkedIn, WhatsApp, Slack, etc.) -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Ansh Maheshwari | BTech Student &amp; Aspiring Software Developer">
+  <meta property="og:description" content="Portfolio of Ansh Maheshwari — BTech student, aspiring software developer, and technology enthusiast focused on Java, DSA and web development.">
+  <!-- After deploying, replace both URLs below with your full live address, e.g.
+       https://your-username.github.io/portfolio/ -->
+  <meta property="og:url" content="https://your-username.github.io/portfolio/">
+  <meta property="og:image" content="https://your-username.github.io/portfolio/assets/images/og-cover.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <!-- Twitter / X card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Ansh Maheshwari | BTech Student &amp; Aspiring Software Developer">
+  <meta name="twitter:description" content="BTech student focused on Java, DSA and web development.">
+  <meta name="twitter:image" content="https://your-username.github.io/portfolio/assets/images/og-cover.png">
+
+  <!-- Favicon (swap for your own .svg / .png / .ico any time) -->
+  <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+
+  <!-- Fonts: Bricolage Grotesque (headings), IBM Plex Sans (body), JetBrains Mono (code accents) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Marks the page as JS-enabled before first paint so scroll-reveal styles never hide content when JS is off -->
+  <script>document.documentElement.classList.add('js');</script>
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <noscript>
+    <p class="noscript">This portfolio builds its content with JavaScript. Please enable it to see the full page.</p>
+  </noscript>
+
+  <!-- Subtle background: drifting grid + two soft light pools (CSS only) -->
+  <div class="bg" aria-hidden="true">
+    <div class="bg__grid"></div>
+    <div class="bg__orb bg__orb--a"></div>
+    <div class="bg__orb bg__orb--b"></div>
+  </div>
+
+  <!-- ============================== NAVIGATION ============================== -->
+  <header class="nav" id="nav">
+    <div class="nav__inner container">
+      <a class="nav__brand" href="#home" data-bind="name"></a>
+
+      <button class="nav__toggle" id="nav-toggle" type="button"
+              aria-expanded="false" aria-controls="nav-menu" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="nav__menu" id="nav-menu" aria-label="Primary">
+        <ul class="nav__list">
+          <li><a class="nav__link" href="#home">Home</a></li>
+          <li><a class="nav__link" href="#about">About</a></li>
+          <li><a class="nav__link" href="#skills">Skills</a></li>
+          <li><a class="nav__link" href="#projects">Projects</a></li>
+          <li><a class="nav__link" href="#experience">Experience</a></li>
+          <li><a class="nav__link" href="#education">Education</a></li>
+          <li><a class="nav__link" href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- ================================ HERO ================================ -->
+    <section class="hero" id="home" aria-labelledby="hero-title">
+      <div class="container hero__grid">
+
+        <div class="hero__copy">
+          <p class="hero__label rise" style="--i:0" data-bind="role"></p>
+
+          <h1 class="hero__title rise" id="hero-title" style="--i:1">
+            <span class="hero__greeting" data-bind="greeting"></span>
+            <span class="hero__name"><span data-bind="name"></span><span class="caret" aria-hidden="true"></span></span>
+          </h1>
+
+          <p class="hero__lead rise" style="--i:2" data-bind="tagline"></p>
+          <p class="hero__bio rise" style="--i:3" data-bind="heroBio"></p>
+
+          <div class="hero__actions rise" style="--i:4">
+            <a class="btn btn--primary" href="#projects">View My Projects</a>
+            <a class="btn btn--ghost" id="resume-link" href="#" download>
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Download Resume
+            </a>
+          </div>
+
+          <ul class="social rise" style="--i:5" data-social aria-label="Social links"></ul>
+        </div>
+
+        <!-- Profile visual. The photo, badges and code card are all filled from CONFIG. -->
+        <div class="hero__visual rise" style="--i:3">
+          <div class="stage">
+            <div class="stage__ring" aria-hidden="true"></div>
+
+            <figure class="frame">
+              <figcaption class="frame__bar">
+                <span class="frame__dot"></span><span class="frame__dot"></span><span class="frame__dot"></span>
+                <span class="frame__file" id="frame-file"></span>
+              </figcaption>
+              <div class="frame__photo">
+                <img id="hero-photo" alt="" width="860" height="988" decoding="async">
+              </div>
+            </figure>
+
+            <pre class="float float--code code-card" id="hero-snippet" aria-hidden="true"></pre>
+            <div class="float float--b1 badge" id="badge-1" aria-hidden="true"></div>
+            <div class="float float--b2 badge" id="badge-2" aria-hidden="true"></div>
+            <div class="float float--b3 badge" id="badge-3" aria-hidden="true"></div>
+            <span class="sym sym--1" aria-hidden="true">&lt;/&gt;</span>
+            <span class="sym sym--2" aria-hidden="true">{ }</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================================ ABOUT =============================== -->
+    <section class="section" id="about" aria-labelledby="about-title">
+      <div class="container split">
+        <div class="split__head">
+          <h2 class="section__title" id="about-title">About Me</h2>
+        </div>
+        <div class="about">
+          <div class="prose" id="about-text"></div>
+          <dl class="stats" id="about-stats"></dl>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================ SKILLS ============================== -->
+    <section class="section" id="skills" aria-labelledby="skills-title">
+      <div class="container split">
+        <div class="split__head">
+          <h2 class="section__title" id="skills-title">Skills</h2>
+          <p class="section__note">What I use today, and what I'm working on next.</p>
+        </div>
+        <div>
+          <div class="skills" id="skills-grid"></div>
+          <div id="skills-learning"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =============================== PROJECTS ============================= -->
+    <section class="section" id="projects" aria-labelledby="projects-title">
+      <div class="container">
+        <div class="section__top">
+          <h2 class="section__title" id="projects-title">Featured Projects</h2>
+          <p class="section__note">Hardware and web work I've built while learning.</p>
+        </div>
+        <div class="projects" id="projects-list"></div>
+      </div>
+    </section>
+
+    <!-- ============================== EXPERIENCE ============================ -->
+    <section class="section" id="experience" aria-labelledby="experience-title">
+      <div class="container split">
+        <div class="split__head">
+          <h2 class="section__title" id="experience-title">Experience</h2>
+          <p class="section__note">Where I've put what I've learned into practice.</p>
+        </div>
+        <ol class="timeline" id="experience-list"></ol>
+      </div>
+    </section>
+
+    <!-- =============================== EDUCATION ============================ -->
+    <section class="section" id="education" aria-labelledby="education-title">
+      <div class="container split">
+        <div class="split__head">
+          <h2 class="section__title" id="education-title">Education</h2>
+        </div>
+        <div class="edu-list" id="education-list"></div>
+      </div>
+    </section>
+
+    <!-- ===================== ACHIEVEMENTS / CERTIFICATIONS ================== -->
+    <section class="section" id="achievements" aria-labelledby="achievements-title">
+      <div class="container split">
+        <div class="split__head">
+          <h2 class="section__title" id="achievements-title">Achievements &amp; Certifications</h2>
+          <p class="section__note">Hackathons, certificates and practice, listed as I earn them.</p>
+        </div>
+        <div class="ach" id="achievements-grid"></div>
+      </div>
+    </section>
+
+    <!-- ================================ CONTACT ============================= -->
+    <section class="section" id="contact" aria-labelledby="contact-title">
+      <div class="container contact">
+        <div class="contact__intro">
+          <h2 class="section__title section__title--lg" id="contact-title">Let's Build Something Together</h2>
+          <p class="contact__text">I'm always interested in learning, building, and connecting with people working on interesting ideas.</p>
+          <ul class="contact-links" id="contact-links"></ul>
+        </div>
+
+        <form class="form" id="contact-form" aria-labelledby="form-title">
+          <h3 class="form__title" id="form-title">Send a message</h3>
+          <div class="field">
+            <label for="cf-name">Name</label>
+            <input id="cf-name" name="name" type="text" autocomplete="name" required>
+          </div>
+          <div class="field">
+            <label for="cf-email">Email</label>
+            <input id="cf-email" name="email" type="email" autocomplete="email" required>
+          </div>
+          <div class="field">
+            <label for="cf-message">Message</label>
+            <textarea id="cf-message" name="message" rows="5" required></textarea>
+          </div>
+          <button class="btn btn--primary" type="submit">Send Message</button>
+          <!-- Frontend-only: this uses a mailto: link. For a real form backend, see README.md -->
+          <p class="form__note">Sending opens your email app with this message filled in.</p>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ================================ FOOTER ================================ -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div>
+        <p class="footer__name" data-bind="name"></p>
+        <p class="footer__tagline" data-bind="footerTagline"></p>
+      </div>
+      <ul class="social" data-social aria-label="Social links"></ul>
+    </div>
+    <div class="container footer__legal">
+      <p>&copy; <span id="year">2026</span> <span data-bind="name"></span>. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="js/script.js" defer></script>
+</body>
+</html>

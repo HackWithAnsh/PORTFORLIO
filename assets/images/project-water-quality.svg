@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 640" role="img" aria-label="A water sensor probe sending readings to a dashboard">
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0H0V40" fill="none" stroke="#fff" stroke-opacity=".04"/>
+    </pattern>
+    <radialGradient id="glow" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#f3b562" stop-opacity=".16"/>
+      <stop offset="1" stop-color="#f3b562" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="960" height="640" fill="#131822"/>
+  <rect width="960" height="640" fill="url(#grid)"/>
+  <circle cx="300" cy="380" r="280" fill="url(#glow)"/>
+
+  <!-- water -->
+  <path d="M0 410C80 390 160 430 240 410S400 390 480 410 640 430 720 410 880 390 960 410V640H0Z" fill="#f3b562" fill-opacity=".07"/>
+  <path d="M0 410C80 390 160 430 240 410S400 390 480 410 640 430 720 410 880 390 960 410" fill="none" stroke="#f3b562" stroke-opacity=".55" stroke-width="2"/>
+  <path d="M0 450C90 432 170 468 260 450S420 432 500 450 660 468 740 450 900 432 960 450" fill="none" stroke="#f3b562" stroke-opacity=".22" stroke-width="2"/>
+
+  <!-- probe -->
+  <rect x="286" y="190" width="28" height="290" rx="14" fill="#1c2331" stroke="#3a4560" stroke-width="2"/>
+  <rect x="278" y="128" width="44" height="66" rx="10" fill="#232c3e" stroke="#3a4560" stroke-width="2"/>
+  <circle cx="300" cy="150" r="5" fill="#f3b562"/>
+  <rect x="290" y="166" width="20" height="4" rx="2" fill="#3a4560"/>
+  <rect x="286" y="436" width="28" height="44" rx="12" fill="#f3b562" fill-opacity=".85"/>
+
+  <!-- bubbles -->
+  <circle cx="346" cy="470" r="7" fill="none" stroke="#f3b562" stroke-opacity=".5" stroke-width="2"/>
+  <circle cx="366" cy="512" r="4" fill="none" stroke="#f3b562" stroke-opacity=".4" stroke-width="2"/>
+  <circle cx="330" cy="548" r="9" fill="none" stroke="#f3b562" stroke-opacity=".35" stroke-width="2"/>
+  <circle cx="248" cy="500" r="5" fill="none" stroke="#f3b562" stroke-opacity=".4" stroke-width="2"/>
+
+  <!-- signal -->
+  <g fill="none" stroke="#f3b562" stroke-linecap="round" stroke-width="3">
+    <path d="M340 138a26 26 0 0 1 0 26" stroke-opacity=".9"/>
+    <path d="M356 126a46 46 0 0 1 0 50" stroke-opacity=".6"/>
+    <path d="M372 114a66 66 0 0 1 0 74" stroke-opacity=".32"/>
+  </g>
+  <path d="M400 150C480 150 520 130 590 130" fill="none" stroke="#f3b562" stroke-opacity=".55" stroke-width="2" stroke-dasharray="3 9" stroke-linecap="round"/>
+
+  <!-- dashboard -->
+  <rect x="600" y="70" width="304" height="248" rx="18" fill="#1c2331" stroke="#2f3a52" stroke-width="2"/>
+  <rect x="626" y="98" width="96" height="10" rx="5" fill="#3a4560"/>
+  <circle cx="874" cy="103" r="5" fill="#f3b562"/>
+  <g fill="none" stroke-width="7" stroke-linecap="round">
+    <circle cx="672" cy="172" r="28" stroke="#2f3a52"/>
+    <circle cx="672" cy="172" r="28" stroke="#f3b562" stroke-dasharray="120 176" transform="rotate(-90 672 172)"/>
+    <circle cx="752" cy="172" r="28" stroke="#2f3a52"/>
+    <circle cx="752" cy="172" r="28" stroke="#f3b562" stroke-opacity=".75" stroke-dasharray="84 176" transform="rotate(-90 752 172)"/>
+    <circle cx="832" cy="172" r="28" stroke="#2f3a52"/>
+    <circle cx="832" cy="172" r="28" stroke="#f3b562" stroke-opacity=".55" stroke-dasharray="140 176" transform="rotate(-90 832 172)"/>
+  </g>
+  <polyline points="626,282 664,264 702,272 740,246 778,256 816,230 878,246" fill="none" stroke="#f3b562" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <line x1="626" y1="296" x2="878" y2="296" stroke="#2f3a52" stroke-width="2"/>
+</svg>

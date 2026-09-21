@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 640" role="img" aria-label="A website layout shown in a desktop browser and on a phone">
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0H0V40" fill="none" stroke="#fff" stroke-opacity=".04"/>
+    </pattern>
+    <radialGradient id="glow" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#f3b562" stop-opacity=".14"/>
+      <stop offset="1" stop-color="#f3b562" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="960" height="640" fill="#131822"/>
+  <rect width="960" height="640" fill="url(#grid)"/>
+  <circle cx="420" cy="300" r="300" fill="url(#glow)"/>
+
+  <!-- browser window -->
+  <rect x="80" y="100" width="640" height="420" rx="18" fill="#1c2331" stroke="#3a4560" stroke-width="2"/>
+  <path d="M80 118a18 18 0 0 1 18-18h604a18 18 0 0 1 18 18v34H80Z" fill="#232c3e"/>
+  <circle cx="110" cy="126" r="6" fill="#3a4560"/>
+  <circle cx="132" cy="126" r="6" fill="#3a4560"/>
+  <circle cx="154" cy="126" r="6" fill="#3a4560"/>
+  <rect x="200" y="114" width="300" height="24" rx="12" fill="#131822"/>
+
+  <!-- page: nav -->
+  <rect x="112" y="176" width="70" height="10" rx="5" fill="#f3b562" fill-opacity=".85"/>
+  <g fill="#3a4560">
+    <rect x="470" y="176" width="40" height="10" rx="5"/>
+    <rect x="530" y="176" width="40" height="10" rx="5"/>
+    <rect x="590" y="176" width="40" height="10" rx="5"/>
+    <rect x="650" y="176" width="40" height="10" rx="5"/>
+  </g>
+
+  <!-- page: hero -->
+  <rect x="112" y="228" width="260" height="20" rx="8" fill="#e9edf3" fill-opacity=".85"/>
+  <rect x="112" y="260" width="200" height="20" rx="8" fill="#e9edf3" fill-opacity=".85"/>
+  <rect x="112" y="300" width="300" height="9" rx="4.5" fill="#3a4560"/>
+  <rect x="112" y="320" width="250" height="9" rx="4.5" fill="#3a4560"/>
+  <rect x="112" y="352" width="104" height="34" rx="9" fill="#f3b562"/>
+  <rect x="228" y="352" width="104" height="34" rx="9" fill="none" stroke="#3a4560" stroke-width="2"/>
+  <rect x="470" y="218" width="220" height="170" rx="14" fill="#131822" stroke="#2f3a52" stroke-width="2"/>
+  <path d="M470 350l56-48 44 34 40-30 80 62v20a14 14 0 0 1-14 14H484a14 14 0 0 1-14-14Z" fill="#f3b562" fill-opacity=".12"/>
+  <circle cx="518" cy="256" r="12" fill="#f3b562" fill-opacity=".6"/>
+
+  <!-- page: cards -->
+  <g fill="#131822" stroke="#2f3a52" stroke-width="2">
+    <rect x="112" y="420" width="184" height="72" rx="12"/>
+    <rect x="316" y="420" width="184" height="72" rx="12"/>
+    <rect x="520" y="420" width="170" height="72" rx="12"/>
+  </g>
+  <g fill="#3a4560">
+    <rect x="130" y="440" width="80" height="8" rx="4"/><rect x="130" y="460" width="120" height="8" rx="4"/>
+    <rect x="334" y="440" width="80" height="8" rx="4"/><rect x="334" y="460" width="120" height="8" rx="4"/>
+    <rect x="538" y="440" width="80" height="8" rx="4"/><rect x="538" y="460" width="110" height="8" rx="4"/>
+  </g>
+
+  <!-- phone -->
+  <rect x="722" y="200" width="170" height="340" rx="28" fill="#1c2331" stroke="#3a4560" stroke-width="2"/>
+  <rect x="736" y="228" width="142" height="284" rx="14" fill="#131822"/>
+  <rect x="774" y="210" width="66" height="8" rx="4" fill="#2f3a52"/>
+  <rect x="750" y="246" width="50" height="8" rx="4" fill="#f3b562" fill-opacity=".85"/>
+  <rect x="750" y="276" width="112" height="14" rx="6" fill="#e9edf3" fill-opacity=".85"/>
+  <rect x="750" y="298" width="84" height="14" rx="6" fill="#e9edf3" fill-opacity=".85"/>
+  <rect x="750" y="326" width="112" height="7" rx="3.5" fill="#3a4560"/>
+  <rect x="750" y="342" width="90" height="7" rx="3.5" fill="#3a4560"/>
+  <rect x="750" y="364" width="80" height="26" rx="8" fill="#f3b562"/>
+  <rect x="750" y="404" width="112" height="46" rx="10" fill="none" stroke="#2f3a52" stroke-width="2"/>
+  <rect x="750" y="458" width="112" height="46" rx="10" fill="none" stroke="#2f3a52" stroke-width="2"/>
+
+  <!-- code mark -->
+  <g fill="none" stroke="#f3b562" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke-opacity=".85">
+    <path d="M790 132l-22 22 22 22"/>
+    <path d="M826 132l22 22-22 22"/>
+    <path d="M814 126l-10 56" stroke-opacity=".6"/>
+  </g>
+</svg>
