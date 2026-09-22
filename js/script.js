@@ -36,10 +36,12 @@ const CONFIG = {
   email: "maheshwariansh478@gmail.com",
   github: "https://github.com/HackWithAnsh",
   linkedin: "https://linkedin.com/in/hackwithansh",
+  whatsapp: "",
+  telegram: "",
   resume: "assets/Ansh-Maheshwari-Resume.pdf",            // ← put your PDF at this path (see README)
 
   /* ---------- Profile photo ---------- */
-  profileImage: "assets/images/profile.webp",
+  profileImage: "assets/images/profile.jpg",
   profileAlt: "Portrait of Ansh Maheshwari",
   photoCaption: "Second-year B.Tech CSE student, focused on Java, DSA and the web.",
 
@@ -194,6 +196,8 @@ const ICONS = {
   github:   '<path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>',
   linkedin: '<path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/>',
   mail:     '<path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>',
+  whatsapp:  '<path d="M20 11.5a8 8 0 0 1-11.8 7L4 20l1.5-4A8 8 0 1 1 20 11.5Z"/><path d="M8.7 8.7c.2-.4.5-.4.8-.4h.5c.2 0 .4.1.5.4l.7 1.7c.1.3.1.5-.1.7l-.6.7c.8 1.3 1.8 2.2 3.1 2.9l.6-.6c.2-.2.4-.2.7-.1l1.6.8c.3.1.4.3.4.6 0 .5-.2 1-.5 1.3-.4.4-1 .5-1.6.3-3.6-1.2-6.2-3.6-7.4-7.1-.2-.6-.1-1.2.3-1.7Z"/>',
+  telegram: '<path d="m22 3-7.1 18-3.5-7.1L4 10.5 22 3Z"/><path d="M11.4 13.9 18 7.6"/>',
   external: '<path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/>',
   cap:      '<path d="M22 10L12 5 2 10l10 5 10-5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/>',
   award:    '<circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/>',
@@ -265,18 +269,20 @@ function renderBindings() {
 /** GitHub / LinkedIn / Email icon rows (hero and footer). */
 function renderSocials() {
   const links = [
-    { label: "GitHub", href: CONFIG.github, icon: "github", external: true },
+    { label: "WhatsApp", href: CONFIG.whatsapp, icon: "whatsapp", external: true },
     { label: "LinkedIn", href: CONFIG.linkedin, icon: "linkedin", external: true },
+    { label: "GitHub", href: CONFIG.github, icon: "github", external: true },
+    { label: "Telegram", href: CONFIG.telegram, icon: "telegram", external: true },
     { label: "Email", href: `mailto:${CONFIG.email}`, icon: "mail", external: false },
-  ];
+  ].filter((l) => l.href && !isPlaceholder(l.href));
   const html = links
     .map((l) =>
       `<li><a class="icon-btn" href="${esc(l.href)}"` +
       (l.external ? ' target="_blank" rel="noopener noreferrer"' : "") +
-      ` aria-label="${l.label}${l.external ? " (opens in a new tab)" : ""}">${icon(l.icon)}</a></li>`
+      ` aria-label="${l.label}${l.external ? " (opens in a new tab)" : ""}" title="${l.label}">${icon(l.icon)}</a></li>`
     )
     .join("");
-  $$("[data-social]").forEach((list) => (list.innerHTML = html));
+  $$('[data-social]').forEach((list) => (list.innerHTML = html));
 }
 
 /** Hero photo and its one-line caption. */
@@ -444,6 +450,32 @@ function reportPlaceholders() {
    5. BEHAVIOUR
    ===================================================================== */
 
+function initTheme() {
+  const button = $("#theme-toggle");
+  const root = document.documentElement;
+  if (!button) return;
+  const stored = localStorage.getItem("portfolio-theme");
+  const preferred = window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
+
+  const apply = (theme) => {
+    root.dataset.theme = theme;
+    localStorage.setItem("portfolio-theme", theme);
+    const light = theme === "light";
+    button.setAttribute("aria-label", light ? "Switch to dark theme" : "Switch to light theme");
+    button.title = light ? "Switch to dark theme" : "Switch to light theme";
+  };
+
+  apply(stored || preferred);
+  button.addEventListener("click", () => apply(root.dataset.theme === "light" ? "dark" : "light"));
+}
+
+function initNavResume() {
+  const resume = $("#nav-resume");
+  if (!resume) return;
+  if (CONFIG.resume) resume.href = CONFIG.resume;
+  else resume.addEventListener("click", (event) => { event.preventDefault(); showToast("Resume link isn't set up yet."); });
+}
+
 /** Navbar: solidify on scroll, hamburger menu, active-section highlight. */
 function initNav() {
   const nav = $("#nav");
@@ -574,6 +606,8 @@ renderAchievements();
 renderContactLinks();
 reportPlaceholders();
 
+initTheme();
+initNavResume();
 initNav();
 initReveal();     // after rendering, so dynamic blocks are included
 initContactForm();

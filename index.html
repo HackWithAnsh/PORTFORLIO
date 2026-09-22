@@ -57,7 +57,10 @@
   <!-- ============================== NAVIGATION ============================== -->
   <header class="nav" id="nav">
     <div class="nav__inner container">
-      <a class="nav__brand" href="#home" data-bind="name"></a>
+      <a class="nav__brand" href="#home" aria-label="Ansh Maheshwari — Home">
+        <img class="nav__logo" src="assets/icons/am-logo.svg" alt="" width="34" height="34">
+        <span data-bind="name"></span>
+      </a>
 
       <button class="nav__toggle" id="nav-toggle" type="button"
               aria-expanded="false" aria-controls="nav-menu" aria-label="Open menu">
@@ -70,11 +73,21 @@
           <li><a class="nav__link" href="#about">About</a></li>
           <li><a class="nav__link" href="#skills">Skills</a></li>
           <li><a class="nav__link" href="#projects">Projects</a></li>
-          <li><a class="nav__link" href="#experience">Focus</a></li>
+          <li><a class="nav__link" href="#experience">Experience</a></li>
           <li><a class="nav__link" href="#education">Education</a></li>
+          <li><a class="nav__link" href="#achievements">Certifications</a></li>
           <li><a class="nav__link" href="#contact">Contact</a></li>
         </ul>
       </nav>
+
+      <div class="nav__tools" aria-label="Quick links and settings">
+        <ul class="nav__social" data-social aria-label="Social links"></ul>
+        <button class="theme-toggle icon-btn" id="theme-toggle" type="button" aria-label="Switch to light theme" title="Switch theme">
+          <svg class="icon theme-icon theme-icon--moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a6.6 6.6 0 0 0 9.8 9.8z"/></svg>
+          <svg class="icon theme-icon theme-icon--sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+        </button>
+        <a class="btn btn--primary nav__resume" id="nav-resume" href="#">Resume</a>
+      </div>
     </div>
   </header>
 
