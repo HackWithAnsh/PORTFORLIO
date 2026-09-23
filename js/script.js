@@ -611,3 +611,57 @@ initNavResume();
 initNav();
 initReveal();     // after rendering, so dynamic blocks are included
 initContactForm();
+
+/* ==========================================================================
+   ENTRY EXPERIENCE
+   Note: the visible visit number is stored per browser/device. It is not a
+   public visitor counter. A real cross-user counter needs a server/analytics
+   endpoint and is intentionally not faked here.
+   ========================================================================== */
+(() => {
+  const screen = document.getElementById("entry-screen");
+  const enter = document.getElementById("enter-portfolio");
+  const timeEl = document.getElementById("entry-time");
+  const visitsEl = document.getElementById("entry-visits");
+  if (!screen || !enter) return;
+
+  document.body.classList.add("entry-active");
+
+  const storageKey = "ansh_portfolio_entry_visits";
+  let visits = 1;
+  try {
+    visits = Number(localStorage.getItem(storageKey) || "0") + 1;
+    localStorage.setItem(storageKey, String(visits));
+  } catch (_) {}
+  if (visitsEl) visitsEl.textContent = String(visits).padStart(2, "0");
+
+  const updateTime = () => {
+    if (!timeEl) return;
+    timeEl.textContent = new Intl.DateTimeFormat(undefined, {
+      hour: "2-digit",
+      minute: "2-digit",
+      second: "2-digit",
+      hour12: false
+    }).format(new Date());
+  };
+  updateTime();
+  const clockTimer = window.setInterval(updateTime, 1000);
+
+  const leave = () => {
+    if (screen.classList.contains("is-leaving")) return;
+    screen.classList.add("is-leaving");
+    document.body.classList.remove("entry-active");
+    window.clearInterval(clockTimer);
+    window.setTimeout(() => {
+      screen.remove();
+      const main = document.getElementById("main");
+      if (main) main.setAttribute("tabindex", "-1");
+      window.scrollTo({ top: 0, behavior: "auto" });
+    }, 780);
+  };
+
+  enter.addEventListener("click", leave);
+  screen.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") leave();
+  });
+})();
