@@ -60,7 +60,7 @@ const CONFIG = {
     ],
     // Only use numbers you can stand behind.
     stats: [
-      { value: "7.2", label: "CGPA out of 10" },
+      { value: "7.0", label: "CGPA out of 10" },
       { value: "4", label: "Projects built" },
       { value: "2029", label: "Expected graduation" },
     ],
@@ -155,7 +155,7 @@ const CONFIG = {
       degree: "B.Tech in Computer Science & Engineering",
       institution: "Invertis University",
       period: "2025 – 2029 (expected)",
-      status: "2nd year, CGPA 7.2/10",
+      status: "2nd year, CGPA 7.0/10",
     },
     {
       degree: "Class XII",
